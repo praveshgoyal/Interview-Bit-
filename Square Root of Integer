@@ -1,0 +1,47 @@
+//
+
+Implement int sqrt(int x).
+
+Compute and return the square root of x.
+
+If x is not a perfect square, return floor(sqrt(x))
+
+Example :
+
+Input : 11
+Output : 3
+
+
+java solution
+
+
+public class Solution {
+    public int sqrt(int a) {
+        if(a<=1)
+        return a;
+        
+        
+        int low=1;
+        int high=(a/2);
+        int mid=1;
+        while(low<=high)
+        {
+             mid=low+(high-low)/2;
+            if((a/mid)==mid)
+            return mid;
+            else
+            {
+                if((a/mid)<mid)
+                high=mid-1;
+            
+                else
+                low=mid+1;
+            }
+            
+        }
+         if((a/mid)<mid)
+        mid=mid-1;
+     
+        return mid;
+    }
+}
