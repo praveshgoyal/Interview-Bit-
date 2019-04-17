@@ -12,7 +12,8 @@ return [1,3,2].
 
 Using recursion is not allowed.
 
-
+Time Complexity:O(n)
+Space Complexity:O(n)
 
 java
 
