@@ -8,6 +8,8 @@ If multiple solutions exist, output the one where index2 is minimum. If there ar
 
 
 
+	
+	
 /// Brute force
 public class Solution {
     // DO NOT MODIFY THE LIST. IT IS READ ONLY
