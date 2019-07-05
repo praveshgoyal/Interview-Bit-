@@ -1,0 +1,41 @@
+Given an integer array, find if an integer p exists in the array such that the number of integers greater than p in the array equals to p
+If such an integer is found return 1 else return -1.
+
+
+
+
+Java
+
+
+public class Solution {
+    public int solve(ArrayList<Integer> A) {
+        
+        Collections.sort(A);
+        int ans=-1;
+        int count=1;
+        int same=0;
+        for(int i=A.size()-2;i>=0;i--)
+        {
+           
+           if(A.get(i)!=A.get(i+1))
+              {
+               count=count+same; 
+               same=0;
+                   
+               if(A.get(i)==count)
+                 {
+                  ans=1;
+                  break;
+                  }
+               if(same==0)
+                  count++;
+                }
+          
+           else
+            same++;
+             
+         }
+        return ans;
+        
+    }
+}
