@@ -1,0 +1,88 @@
+Give a N*N square matrix, return an array of its anti-diagonals. Look at the example for more details.
+
+Example:
+
+		
+Input: 	
+
+1 2 3
+4 5 6
+7 8 9
+
+Return the following :
+
+[ 
+  [1],
+  [2, 4],
+  [3, 5, 7],
+  [6, 8],
+  [9]
+]
+
+
+Input : 
+1 2
+3 4
+
+Return the following  : 
+
+[
+  [1],
+  [2, 3],
+  [4]
+]
+
+
+
+
+
+
+Java
+
+
+public class Solution {
+    public ArrayList<ArrayList<Integer>> diagonal(ArrayList<ArrayList<Integer>> A) {
+        
+        ArrayList<ArrayList<Integer>> ar=new ArrayList<ArrayList<Integer>>();
+       
+        int i=0;
+        int j=0;
+       
+       for(int h=0;h<A.size();h++)
+       {
+           ArrayList<Integer> a=new ArrayList<Integer>();
+                j=h;
+                i=0;
+
+                
+            while(i<=h)
+            {
+                a.add(A.get(i).get(j));
+                i++;
+                j--;
+                
+            }
+            ar.add(a);
+            
+       }
+       
+       for(int h=1;h<A.size();h++)
+       {
+           ArrayList<Integer> a=new ArrayList<Integer>();
+                j=A.size()-1;
+                i=h;
+
+                
+            while(i<=A.size()-1)
+            {
+                a.add(A.get(i).get(j));
+                i++;
+                j--;
+                
+            }
+            ar.add(a);
+            
+       }
+       return ar;
+    }
+}
