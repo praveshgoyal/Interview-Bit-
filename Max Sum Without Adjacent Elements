@@ -1,0 +1,46 @@
+Given a 2 * N Grid of numbers, choose numbers such that the sum of the numbers
+is maximum and no two chosen numbers are adjacent horizontally, vertically or diagonally, and return it.
+
+Example:
+
+Grid:
+	1 2 3 4
+	2 3 4 5
+so we will choose
+3 and 5 so sum will be 3 + 5 = 8
+
+
+Note that you can choose more than 2 numbers
+
+
+Java
+public class Solution {
+    public int adjacent(int[][] A) {
+        int r=2;
+        int c=A[0].length;
+        if(c==1)
+        return Math.max(A[0][0],A[1][0]);
+        if(c==2)
+        return max(A[0][0],A[1][0],A[0][1],A[1][1]);
+        for(int i=2;i<c;i++)
+        {
+            for(int j=0;j<2;j++)
+            {
+                if(i==2)
+                A[j][i]+=Math.max(A[0][0],A[1][0]);
+                else
+                A[j][i]+=max(A[0][i-2],A[0][i-3],A[1][i-2],A[1][i-3]);
+            }
+        }
+        return max(A[0][c-2],A[0][c-1],A[1][c-2],A[1][c-1]);
+    }
+    public int max(int p,int q,int r, int s)
+    {
+        int ans=Integer.MIN_VALUE;
+        ans=Math.max(ans,p);
+        ans=Math.max(ans,q);
+        ans=Math.max(ans,r);
+        ans=Math.max(ans,s);
+        return ans;
+    }
+}
